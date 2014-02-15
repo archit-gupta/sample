@@ -1,5 +1,5 @@
 == Deployed on Heroku
-  http://nvd3-sample.herokuapp.com
+  http://nvd3-sample.herokuapp.com/
 
 == Getting Started
 
