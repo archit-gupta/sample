@@ -36,4 +36,11 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger', :group => :development
+group :development, :test do
+  gem 'mysql2'
+  gem 'debugger'
+end
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
