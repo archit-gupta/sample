@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  class_name: MyString
+  test_fa1: 9.99
+  test_fa2: 9.99
+  test_sa1: 9.99
+
+two:
+  name: MyString
+  class_name: MyString
+  test_fa1: 9.99
+  test_fa2: 9.99
+  test_sa1: 9.99

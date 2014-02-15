@@ -17,7 +17,6 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
   gem "twitter-bootstrap-rails"
-  gem "nvd3-rails", :git => "git@github.com:adeven/nvd3-rails.git", :submodules => true
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -37,4 +36,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
