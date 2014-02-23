@@ -16,12 +16,12 @@
         </tr>
       </thead>
       <tbody>
-        <% @users.select{ |user| user.class_name == "9A" }.each do |user| %>
+        <% @sectionA_students.users.each do |user| %>
           <tr>
             <td><%= link_to user.name, selected_user_path(user.id) %></td>
-            <td><%= user.test_fa1 %></td>
-            <td><%= user.test_fa2 %></td>
-            <td><%= user.test_sa1 %></td>
+            <% user.get_result.each do |key, value| %>
+             <td><%= value %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
@@ -36,21 +36,22 @@
         </tr>
       </thead>
       <tbody>
-        <% @users.select{ |user| user.class_name == "9B" }.each do |user| %>
+        <% @sectionB_students.users.each do |user| %>
           <tr>
             <td><%= link_to user.name, selected_user_path(user.id) %></td>
-            <td><%= user.test_fa1 %></td>
-            <td><%= user.test_fa2 %></td>
-            <td><%= user.test_sa1 %></td>
+            <% user.get_result.each do |key, value| %>
+             <td><%= value %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
     </table>
 </div>
-
-<div id="chart" style="height: 400px;">
-    <svg></svg>
+<div id="chart" style="height: 400px;width:500px;margin:auto">
+  <svg></svg>
 </div>
+
+
 
 <script>
   nv.addGraph(function() {
@@ -109,8 +110,8 @@
           line3.push({x: <%= index %>, y: <%= value %>});
         <% end %>
 
-        <% if @selected_user.present? %>
-          <% @selected_user.each_with_index do |(key,value),index| %>
+        <% if @user_result.present? %>
+          <% @user_result.each_with_index do |(key,value),index| %>
             line4.push({x: <%= index %>, y: <%= value %>});
           <% end %>
         <% end %>
@@ -131,7 +132,7 @@
         <% if @user.present? %>
           ,{
             values: line4,
-            key: '<%= @user.first.name %>', 
+            key: '<%= @user.name %>', 
             color: '#F70000'
             }
         <% end %>];

@@ -11,16 +11,45 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140215082250) do
+ActiveRecord::Schema.define(:version => 20140222115550) do
+
+  create_table "main_classes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "main_tests", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "main_class_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "sections", ["main_class_id"], :name => "index_sections_on_main_class_id"
+
+  create_table "test_results", :force => true do |t|
+    t.integer  "marks"
+    t.integer  "user_id"
+    t.integer  "main_test_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "test_results", ["main_test_id"], :name => "index_test_results_on_main_test_id"
+  add_index "test_results", ["user_id"], :name => "index_test_results_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "class_name"
-    t.decimal  "test_fa1",   :precision => 10, :scale => 0
-    t.decimal  "test_fa2",   :precision => 10, :scale => 0
-    t.decimal  "test_sa1",   :precision => 10, :scale => 0
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "section_id"
   end
 
 end
