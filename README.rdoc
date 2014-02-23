@@ -1,2 +1,2 @@
 == Deployed on Heroku
-http://nvd3-sample.herokuapp.com
+http://frozen-dusk-7525.herokuapp.com
