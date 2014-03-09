@@ -20,6 +20,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'capistrano', '~> 3.0.1'
+gem 'capistrano-rails', '~> 1.1.0'
+gem 'mysql2'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -35,10 +39,5 @@ gem 'jquery-rails'
 
 # To use debugger
 group :development, :test do
-  gem 'mysql2'
   gem 'debugger'
-end
-group :production do
-  gem 'pg'
-  gem 'thin'
 end
