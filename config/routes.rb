@@ -1,7 +1,9 @@
 Sample::Application.routes.draw do
   get "users/show"
+  get "users/show_angular"
 
   get 'users/:id' => 'users#show', :as => "selected_user"
+  get 'users/show_angular/:id' => 'users#show_angular', :as => "selected_user_angular"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
